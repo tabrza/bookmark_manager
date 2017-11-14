@@ -46,6 +46,10 @@ As a Makers Student
 So I can narrow a search
 I want to be able to filter links via tags
 
+As a time-pressed user
+So that I can quickly go to web sites I regularly visit
+I would like to see a list of links on the homepage
+
 ```
 
 | Objects       | Messages            |
