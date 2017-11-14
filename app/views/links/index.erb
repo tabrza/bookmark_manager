@@ -3,8 +3,11 @@
 <ul id='links'>
   <% @links.each do |link| %>
     <li>
-      Title: <%= link.title %>
-      URL:   <%= link.url   %>
+      <b>Title:</b> <%= link.title %>
+    <br>
+      <b>URL:</b>   <%= link.url   %>
     </li>
   <% end %>
 </ul>
+
+<p> <%= @title %> : <%= @url %> </p>
