@@ -13,7 +13,6 @@ class BookmarkManager < Sinatra::Base
     @links = Link.all
     @url = session[:url]
     @title = session[:title]
-
     erb :'links/index'
   end
 

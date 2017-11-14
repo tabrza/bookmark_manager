@@ -6,10 +6,12 @@ gem 'selenium-webdriver'
 gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'dm-transactions'
 
 group :test do
   gem 'rspec'
   gem 'capybara'
+  gem 'database_cleaner'
   # gem 'rubocop'
   # gem 'simplecov', require: false
   # gem 'simplecov-console', require: false
