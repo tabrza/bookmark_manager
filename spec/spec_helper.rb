@@ -1,18 +1,18 @@
-require_relative '../app.rb'
+require './app/app.rb'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require 'simplecov'
-require 'simplecov-console'
-
+require 'sinatra'
+# require 'simplecov'
+# require 'simplecov-console'
 ENV['RACK_ENV'] = 'test'
 
 Capybara.app = BookmarkManager
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-])
-SimpleCov.start
+# SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+#   SimpleCov::Formatter::Console,
+# ])
+# SimpleCov.start
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
