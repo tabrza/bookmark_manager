@@ -3,7 +3,6 @@ source 'https://rubygems.org/'
 ruby '2.4.1'
 
 gem 'selenium-webdriver'
-gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-transactions'
@@ -15,4 +14,8 @@ group :test do
   # gem 'rubocop'
   # gem 'simplecov', require: false
   # gem 'simplecov-console', require: false
+end
+
+group :development do
+  gem 'sinatra'
 end
