@@ -29,3 +29,15 @@ feature 'I want to see a list of all the links' do
     end
   end
 end
+
+feature 'see a list of tagged links' do
+  scenario 'users filters list by tags' do
+    3.times { create_link('smubble') }
+    2.times { create_link('bubble') }
+    visit('/tags/bubble')
+    nodes = all(:xpath, '//span[@class = "tag"]')
+    p page.text
+    expect(nodes.length).to eq 2
+    expect(page).to_not have_content 'smubble'
+  end
+end
