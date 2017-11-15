@@ -8,6 +8,7 @@ gem 'dm-transactions'
 gem 'pg'
 gem 'selenium-webdriver'
 gem 'sinatra'
+gem 'rake'
 
 group :test do
   gem 'rspec'
