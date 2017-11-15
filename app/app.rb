@@ -21,7 +21,6 @@ class BookmarkManager < Sinatra::Base
     params[:tags].split(',').map(&:strip).each do |t|
       link.tags << Tag.first_or_create(name: t)
     end
-    p link.tags
     link.save
     redirect '/links'
   end
