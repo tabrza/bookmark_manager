@@ -36,7 +36,6 @@ feature 'see a list of tagged links' do
     2.times { create_link('bubble') }
     visit('/tags/bubble')
     nodes = all(:xpath, '//span[@class = "tag"]')
-    p page.text
     expect(nodes.length).to eq 2
     expect(page).to_not have_content 'smubble'
   end
