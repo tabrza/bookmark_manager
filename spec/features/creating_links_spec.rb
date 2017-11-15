@@ -1,11 +1,16 @@
 feature 'creating links' do
   scenario 'user can add a new link' do
-    visit ('/links/new')
-
-    fill_in 'url', with: 'google.co.uk'
-    fill_in 'title', with: 'Google'
-
-    click_on('Submit')
+    create_link
     expect(page).to have_content('Google')
+  end
+
+  scenario 'user can add a url' do
+    create_link
+    expect(page).to have_content('google.co.uk')
+  end
+
+  scenario 'user can add a tag' do
+    create_link('search')
+    expect(page).to have_content('search')
   end
 end
