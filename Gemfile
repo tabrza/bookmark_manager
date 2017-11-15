@@ -2,6 +2,12 @@ ruby '2.4.2'
 source 'https://rubygems.org/'
 
 
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'dm-transactions'
+gem 'pg'
+gem 'selenium-webdriver'
+gem 'sinatra'
 
 group :test do
   gem 'rspec'
@@ -12,11 +18,5 @@ group :test do
   # gem 'simplecov-console', require: false
 end
 
-group :development do
-  gem 'data_mapper'
-  gem 'dm-postgres-adapter'
-  gem 'dm-transactions'
-  gem 'pg'
-  gem 'selenium-webdriver'
-  gem 'sinatra'
-end
+# group :development do
+# end
