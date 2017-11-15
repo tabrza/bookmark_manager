@@ -10,7 +10,8 @@ feature 'creating links' do
   end
 
   scenario 'user can add a tag' do
-    create_link('search')
+    create_link(['search', 'engine'])
     expect(page).to have_content('search')
+    expect(page).to have_content('engine')
   end
 end
