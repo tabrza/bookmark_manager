@@ -12,8 +12,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/links' do
-    @links = Link.all
-    erb :'links/index'
+    # @links = Link.all
+    erb(:'links/index', locals: { links: Link.all })
   end
 
   post '/add_links' do
@@ -26,6 +26,12 @@ class BookmarkManager < Sinatra::Base
 
   get '/links/new' do
     erb :'links/new'
+  end
+
+  get '/tags/:name' do
+    tag = Tag.first(name: params[:name])
+    # @links = tag ? tag.links : []
+    erb(:'links/index', locals: { links: tag ? tag.links : [] })
   end
 
 end
