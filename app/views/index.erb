@@ -1,6 +1,10 @@
 <form action='/sign_up' method='post'>
-  <input type='text' name='email' placeholder="email address">
+  <input type='text' name='email' placeholder="email address" value='<%= @user_email %>'>
   <input type='text' name='password' placeholder='password'>
   <input type='text' name='confirmation_password' placeholder='confirm password'>
   <input type='submit' value='Submit'>
 </form>
+
+<% if flash[:wrong_password] %>
+  <%= flash[:wrong_password] %>
+<% end %>
