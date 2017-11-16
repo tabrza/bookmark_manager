@@ -1,5 +1,5 @@
 <form action='/sign_up' method='post'>
-  <input type='text' name='email' placeholder="email address" value='<%= @user_email %>'>
+  <input type='email' name='email' placeholder="email address" value='<%= @user_email %>' required>
   <input type='text' name='password' placeholder='password'>
   <input type='text' name='confirmation_password' placeholder='confirm password'>
   <input type='submit' value='Submit'>
