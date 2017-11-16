@@ -4,7 +4,7 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, Text, :required => true
+  property :email, Text, :required => true, :unique => true
   property :encrypted_password, Text
   attr_accessor :password_confirmation
   attr_reader :password
