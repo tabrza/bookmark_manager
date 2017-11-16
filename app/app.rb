@@ -1,8 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 
-require 'sinatra/base'
-require_relative 'models/link.rb'
 require_relative 'dm_setup'
+require 'sinatra/base'
 
 class BookmarkManager < Sinatra::Base
   enable :sessions
@@ -13,7 +12,8 @@ class BookmarkManager < Sinatra::Base
 
   get '/links' do
     # @links = Link.all
-    @email = session[:email]
+    # @current_user = session[:current_user]
+    @user_email = session[:user_email]
     erb(:'links/index', locals: { links: Link.all })
   end
 
@@ -37,8 +37,9 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/sign_up' do
-    session[:email] = params[:email]
-    session[:password] = params[:password]
+    @current_user = User.new(email: params[:email])
+    session[:user_email] = @current_user.email
+    p "CURRENT USER",session[:current_user]
     redirect '/links'
   end
 
