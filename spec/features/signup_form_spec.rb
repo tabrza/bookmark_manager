@@ -22,4 +22,10 @@ feature 'sign up form' do
   	expect { sign_up('invalid@email', '12345', '12345') }.to_not change(User, :count)
   	expect { sign_up('invalid.com', '12345', '12345') }.to_not change(User, :count)
   end
+
+  scenario 'user tries to sign up with existing email address' do
+    sign_up('123@test.com', '12345', '12345')
+    sign_up('123@test.com', '12345', '12345')
+    expect(page).to have_content 'Email is already taken'
+  end
 end
