@@ -8,4 +8,8 @@ feature 'sign up form' do
   scenario 'user fills in wrong confirmation password' do
     expect { sign_up('123@test.com', '12345', '22345') }.to_not change(User, :count)
   end
+  scenario 'user fills in wrong confirmation password' do
+    sign_up('123@test.com', '12345', '22345')
+    expect(page).to have_content 'Password and confirmation password do not match'
+  end
 end
