@@ -5,6 +5,7 @@ require 'sinatra/base'
 
 class BookmarkManager < Sinatra::Base
   enable :sessions
+  set :session_secret, 'a ball of fluff'
 
   get '/' do
     erb(:index)
@@ -38,8 +39,8 @@ class BookmarkManager < Sinatra::Base
 
   post '/sign_up' do
     @current_user = User.new(email: params[:email])
+    @current_user.password(params[:password])
     session[:user_email] = @current_user.email
-    p "CURRENT USER",session[:current_user]
     redirect '/links'
   end
 
