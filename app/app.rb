@@ -8,11 +8,12 @@ class BookmarkManager < Sinatra::Base
   enable :sessions
 
   get '/' do
-    'test 123'
+    erb(:index)
   end
 
   get '/links' do
     # @links = Link.all
+    @email = session[:email]
     erb(:'links/index', locals: { links: Link.all })
   end
 
@@ -33,6 +34,12 @@ class BookmarkManager < Sinatra::Base
     tag = Tag.first(name: params[:name])
     # @links = tag ? tag.links : []
     erb(:'links/index', locals: { links: tag ? tag.links : [] })
+  end
+
+  post '/sign_up' do
+    session[:email] = params[:email]
+    session[:password] = params[:password]
+    redirect '/links'
   end
 
 end
