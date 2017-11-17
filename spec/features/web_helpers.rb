@@ -13,3 +13,9 @@ def sign_up(email, password, confirmation_password)
   fill_in 'confirmation_password', with: confirmation_password
   click_button 'Submit'
 end
+
+def sign_in(email, password)
+  visit '/'
+  fill_in 'email', with: email
+  fill_in 'password', with: password
+end
