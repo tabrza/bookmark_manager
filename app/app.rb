@@ -6,7 +6,7 @@ require 'sinatra/flash'
 
 class BookmarkManager < Sinatra::Base
   enable :sessions
-  set :session_secret, 'a ball of fluff'
+  set :session_secret, 'sexy time'
   register Sinatra::Flash
 
   get '/' do
@@ -49,4 +49,10 @@ class BookmarkManager < Sinatra::Base
     redirect '/' if @current_user.id.nil?
     redirect '/links'
   end
+
+  # helpers do
+  #   def current_user
+  #     @current_user ||= session[:user_email]
+  #   end
+  # end
 end
