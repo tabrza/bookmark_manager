@@ -50,6 +50,16 @@ class BookmarkManager < Sinatra::Base
     redirect '/links'
   end
 
+  post '/sign_in' do
+    @user = User.authenticate(params[:email], params[:password])
+    session[:user_email] = @user.email
+    if @user
+      session[:user_id] = @user.id
+      redirect '/links'
+    else
+      redirect '/'
+    end
+  end
   # helpers do
   #   def current_user
   #     @current_user ||= session[:user_email]
