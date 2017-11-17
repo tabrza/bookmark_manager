@@ -8,14 +8,10 @@ end
 
 def sign_up(email, password, confirmation_password)
   visit '/'
-  fill_in 'email', with: email
-  fill_in 'password', with: password
-  fill_in 'confirmation_password', with: confirmation_password
-  click_button 'Submit'
-end
-
-def sign_in(email, password)
-  visit '/'
-  fill_in 'email', with: email
-  fill_in 'password', with: password
+  within('form#sign_up') do
+    fill_in 'email', with: email
+    fill_in 'password', with: password
+    fill_in 'confirmation_password', with: confirmation_password
+    click_button 'Submit'
+  end
 end
